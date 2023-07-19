@@ -18,6 +18,11 @@ public class SudokuController {
     @Autowired
     SudokuService sudokuService;
 
+    @GetMapping("/health")
+    ResponseEntity<String> healthCheck(){
+        return new ResponseEntity<>("OK!!", HttpStatus.OK);
+    }
+
     @PostMapping
     ResponseEntity<SudokuResponseModel> solveSudoku(@RequestBody SudokuRequestModel sudokuRequestModel){
         return sudokuService.solveSudoku(sudokuRequestModel);
